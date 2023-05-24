@@ -2,7 +2,7 @@
         constructor(play){
             this.nombre = play.nombre;
             this.alias = play.alias
-            this.objetoYarma = play.objetoYarma;
+            this.mochila = play.mochila;
             this.capacidad = play.capacidad;
             this.altura = play.altura;
 
@@ -41,7 +41,7 @@ const comando01 = new comandos ({
 const comando02 = new comandos ({
         nombre:"Sir Francis Duke T. Woolridge ",
         alias:"el Francotirador",
-        objetoYarma:["Fusil de precisión"],
+        mochila:["Fusil de precisión"],
         capacidad: "Puede disparar a grandes distancias con su fusil, provocando una muerte segura y silenciosa. ",
         altura:1.80,
     });
@@ -49,14 +49,14 @@ const comando02 = new comandos ({
 const comando03 = new comandos ({
         nombre:"James Fins Blackwood",
         alias:"el Marine",
-        objetoYarma:["arpon y traje de buzo"],
+        mochila:["arpon y traje de buzo"],
         capacidad: "Puede bucear y mientras lo hace es imperceptible al enemigo, a menos que haya sido visto sumergiéndose",
         altura:1.70,
     });
 const comando04 = new comandos ({
         nombre:" Thomas Fireman Hancock",
         alias:"el Zapador",
-        objetoYarma:["trampa para osos"],
+        mochila:["trampa para osos"],
         capacidad: "Cracion y manipulacion de bombas a nivel de un experto",
         altura:1.60,
     });
@@ -66,7 +66,7 @@ const comando04 = new comandos ({
 const comando05 = new comandos ({
         nombre:" René Frenchy Duchamp ",
         alias:"el Espiá",
-        objetoYarma:["inyección letal y uniforme de general nazi"],
+        mochila:["inyección letal y uniforme de general nazi"],
         capacidad: "disfrazarse del enemigo ",
         altura: 1.78,
     });
@@ -89,7 +89,7 @@ const mision22 = new mision ({
 })
 
 
-console.log(mision22.nombre)
+
 
 const mision33 = new mision ({
             nombre:"Operacion rueda rota",
@@ -99,7 +99,7 @@ const mision33 = new mision ({
 
 })
 
-
+console.log(mision22.nombre)
 
 // Mochilas de misio__________________
 const tambores =[
@@ -133,13 +133,44 @@ const mochilaBum = explosivos.filter( (el)=>el.nombre.includes("bomba")|| el.nom
 litrosPack  = tambores.reduce((total,tambor) => total + tambor.litros, 0);
 
 
-
 // delegar misiones 
 
+function comienzo(){
+    let entrada = prompt("Bienvenido ingrese el codigo de la mision ");
+while( entrada !==" " ){
+    switch (entrada) {
+        case "mision11":
+            alert("usted eligio " + mision11.nombre);
+            continue;
+        case "mision22":
+            alert("usted eligio "+ mision22.nombre);
+            continue;
+        case "mision33":
+            alert("usted eligio "+ mision33.nombre);
+            continue;
+        default:
+            alert("codigo incorrrecto")
+            entrada = prompt(" ingrese el codigo de la mision ");
+            break;
+        }
+    }
+return entrada 
+}
 
+function mostrarSoldados (entrada){
+if (entrada = mision11 ) { for ( const mostrar in mision11 )
+        { alert(mostrar + ": " + mision11[mostrar] );
+    }
+}
+else if (entrada= mision22){  for( const ver in mision22)
+    { alert( ver + ":" + mision22[ver]);}
 
+}
+else if (entrada= mision33){ for ( const ver in mision33)
+{ alert( ver+ ":" + mision33[ver]);}
 
+}
 
+}
 
-
-
+mostrarSoldado ()
