@@ -135,42 +135,88 @@ litrosPack  = tambores.reduce((total,tambor) => total + tambor.litros, 0);
 
 // delegar misiones 
 
-function comienzo(){
-    let entrada = prompt("Bienvenido ingrese el codigo de la mision ");
-while( entrada !==" " ){
-    switch (entrada) {
+function comienzo() {
+    let entrada = prompt("Bienvenido, ingrese el código de la misión:");
+    while (entrada !== "") {
+      switch (entrada) {
         case "mision11":
-            alert("usted eligio " + mision11.nombre);
-            continue;
+          alert("Usted eligió " + mision11.nombre);
+          return mision11; 
         case "mision22":
-            alert("usted eligio "+ mision22.nombre);
-            continue;
+          alert("Usted eligió " + mision22.nombre);
+          return mision22; 
         case "mision33":
-            alert("usted eligio "+ mision33.nombre);
-            continue;
+          alert("Usted eligió " + mision33.nombre);
+          return mision33;
         default:
-            alert("codigo incorrrecto")
-            entrada = prompt(" ingrese el codigo de la mision ");
-            break;
+          alert("Código incorrecto");
+          entrada = prompt("Ingrese el código de la misión:");
+          break;
+      }
+    }
+    
+  }
+  
+  function mostrarSoldados(mision) {
+    if (mision === mision11) {
+      for (const ver in mision11) {
+        alert(ver + ": " + mision11[ver]);
+      }
+    } else if (mision === mision22) {
+      for (const ver in mision22) {
+        alert(ver + ": " + mision22[ver]);
+      }
+    } else if (mision === mision33) {
+      for (const ver in mision33) {
+        alert(ver + ": " + mision33[ver]);
+      }
+    }
+  }
+  
+
+
+
+
+function cual(){ 
+    alert("ahora vea el listado y elija un comando para la mision");
+        for( ver in comando01){
+            alert(ver + ":" + comando01[ver])
+            continue;
         }
-    }
-return entrada 
+        for( ver in comando02){ 
+            alert(ver + ":" + comando02[ver]);
+            continue;
+        }
+        for( ver in comando03){ 
+            alert(ver + ":" + comando03[ver]);
+            continue;
+        }
+        for( ver in comando04){ 
+            alert(ver + ":" + comando04[ver]);
+            continue;
+        }
+        for( ver in comando05){ 
+            alert(ver + ":" + comando05[ver]);
+            continue;
+        }
+alert ("ahora tendra que elegir uno escbriendo el numero correspondiente")
+alert("1 = EL Boina Verde , 2 = EL Francotirador , 3 = El Marine")
+alert( "4= el Zapador y 5 = El Espia")
+cualSoldado= prompt("elija por conveniencia ")
+
 }
 
-function mostrarSoldados (entrada){
-if (entrada = mision11 ) { for ( const mostrar in mision11 )
-        { alert(mostrar + ": " + mision11[mostrar] );
-    }
-}
-else if (entrada= mision22){  for( const ver in mision22)
-    { alert( ver + ":" + mision22[ver]);}
+misionYpostulante = misionSeleccionada.concat(cualSoldado)
+ 
 
-}
-else if (entrada= mision33){ for ( const ver in mision33)
-{ alert( ver+ ":" + mision33[ver]);}
 
-}
 
-}
 
-mostrarSoldado ()
+
+
+  
+  const misionSeleccionada = comienzo();
+  if (misionSeleccionada) {
+    mostrarSoldados(misionSeleccionada);
+  }
+
