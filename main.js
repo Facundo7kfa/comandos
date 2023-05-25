@@ -35,7 +35,7 @@ const comando01 = new comandos ({
         altura: 2.10,
     });
 
-//console.log(comando01.objetoYarma[0])
+
 
 
 const comando02 = new comandos ({
@@ -61,7 +61,7 @@ const comando04 = new comandos ({
         altura:1.60,
     });
 
-   console.log(comando04.hablar())
+
 
 const comando05 = new comandos ({
         nombre:" René Frenchy Duchamp ",
@@ -99,7 +99,7 @@ const mision33 = new mision ({
 
 })
 
-console.log(mision22.nombre)
+
 
 // Mochilas de misio__________________
 const tambores =[
@@ -128,9 +128,9 @@ const explosivos= [{nombre:"granada de Humo"},
                     {nombre:"granada"},
                     {nombre:"bomba c4"}];
 
-const mochilaBum = explosivos.filter( (el)=>el.nombre.includes("bomba")|| el.nombre.includes("granada"))
 
-litrosPack  = tambores.reduce((total,tambor) => total + tambor.litros, 0);
+
+
 
 
 // delegar misiones 
@@ -173,50 +173,83 @@ function comienzo() {
     }
   }
   
-
-
-
-
-function cual(){ 
-    alert("ahora vea el listado y elija un comando para la mision");
-        for( ver in comando01){
-            alert(ver + ":" + comando01[ver])
-            continue;
-        }
-        for( ver in comando02){ 
-            alert(ver + ":" + comando02[ver]);
-            continue;
-        }
-        for( ver in comando03){ 
-            alert(ver + ":" + comando03[ver]);
-            continue;
-        }
-        for( ver in comando04){ 
-            alert(ver + ":" + comando04[ver]);
-            continue;
-        }
-        for( ver in comando05){ 
-            alert(ver + ":" + comando05[ver]);
-            continue;
-        }
-alert ("ahora tendra que elegir uno escbriendo el numero correspondiente")
-alert("1 = EL Boina Verde , 2 = EL Francotirador , 3 = El Marine")
-alert( "4= el Zapador y 5 = El Espia")
-cualSoldado= prompt("elija por conveniencia ")
-
-}
-
-misionYpostulante = misionSeleccionada.concat(cualSoldado)
- 
-
-
-
-
-
-
+  function cual() {
+    alert("Ahora vea el listado y elija un comando para la misión:");
   
+    alert("Comando 01:");
+    for (let ver in comando01) {
+      alert(ver + ": " + comando01[ver]);
+    }
+  
+    alert("Comando 02:");
+    for (let ver in comando02) {
+      alert(ver + ": " + comando02[ver]);
+    }
+  
+    alert("Comando 03:");
+    for (let ver in comando03) {
+      alert(ver + ": " + comando03[ver]);
+    }
+  
+    alert("Comando 04:");
+    for (let ver in comando04) {
+      alert(ver + ": " + comando04[ver]);
+    }
+  
+    alert("Comando 05:");
+    for (let ver in comando05) {
+      alert(ver + ": " + comando05[ver]);
+    }
+  
+    alert("Ahora deberá elegir uno escribiendo el número correspondiente:");
+    alert("1 = el Boina Verde, 2 = el Francotirador, 3 = el Marine");
+    alert("4 = el Zapador y 5 = el Espía");
+  
+    let cualSoldado = prompt("Elija por conveniencia:");
+    let mision = {};
+  
+    if (cualSoldado === "1") {
+      mision = Object.assign(mision, comando01);
+    } else if (cualSoldado === "2") {
+      mision = Object.assign(mision, comando02);
+    } else if (cualSoldado === "3") {
+      mision = Object.assign(mision, comando03);
+    } else if (cualSoldado === "4") {
+      mision = Object.assign(mision, comando04);
+    } else if (cualSoldado === "5") {
+      mision = Object.assign(mision, comando05);
+    } else {
+      alert("Selección inválida");
+    }
+  
+    const misionYpostulante = Object.assign({}, misionSeleccionada, mision);
+  }
+
+  function crearMochila() {
+    const mochilaBum = explosivos.filter(el => el.nombre.includes("bomba") || el.nombre.includes("granada"));
+    
+    const litrosPack = tambores.reduce((total, tambor) => total + tambor.litros, 0);
+    
+    const mochila = {
+      armas: armas.map(arma => arma.nombre),
+      cosas: cosas.map(cosa => cosa.nombre),
+      explosivos: mochilaBum.map(explosivo => explosivo.nombre),
+      litros: litrosPack
+    };
+    
+    return mochila;
+  }
+  
+
+
   const misionSeleccionada = comienzo();
   if (misionSeleccionada) {
     mostrarSoldados(misionSeleccionada);
   }
+cual()
+mision
 
+
+
+  const miMochila = crearMochila();
+  console.log(miMochila);
