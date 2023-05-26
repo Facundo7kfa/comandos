@@ -157,7 +157,7 @@ function comienzo() {
     
   }
   
-  function mostrarSoldados(mision) {
+  function mostrarMision(mision) {
     if (mision === mision11) {
       for (const ver in mision11) {
         alert(ver + ": " + mision11[ver]);
@@ -201,7 +201,7 @@ function comienzo() {
       alert(ver + ": " + comando05[ver]);
     }
   
-    alert("Ahora deberá elegir uno escribiendo el número correspondiente:");
+    alert("Ahora deberá elegir uno poniendo  el número correspondiente:");
     alert("1 = el Boina Verde, 2 = el Francotirador, 3 = el Marine");
     alert("4 = el Zapador y 5 = el Espía");
   
@@ -244,10 +244,13 @@ function comienzo() {
 
   const misionSeleccionada = comienzo();
   if (misionSeleccionada) {
-    mostrarSoldados(misionSeleccionada);
+    mostrarMision(misionSeleccionada);
   }
+
+
 cual()
-mision
+
+
 
 
 
