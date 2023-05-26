@@ -206,23 +206,24 @@ function comienzo() {
     alert("4 = el Zapador y 5 = el Espía");
   
     let cualSoldado = prompt("Elija por conveniencia:");
-    let mision = {};
+   
+   const misionYsoldado = [misionSeleccionada,{}]
   
     if (cualSoldado === "1") {
-      mision = Object.assign(mision, comando01);
+      misionYsoldado.push(comando01);
     } else if (cualSoldado === "2") {
-      mision = Object.assign(mision, comando02);
+      misionYsoldado.push(comando02);
     } else if (cualSoldado === "3") {
-      mision = Object.assign(mision, comando03);
+      misionYsoldado.push(comando03);
     } else if (cualSoldado === "4") {
-      mision = Object.assign(mision, comando04);
+      misionYsoldado.push(comando04);
     } else if (cualSoldado === "5") {
-      mision = Object.assign(mision, comando05);
+      misionYsoldado.push(comando05);
     } else {
       alert("Selección inválida");
     }
   
-    const misionYpostulante = Object.assign({}, misionSeleccionada, mision);
+
   }
 
   function crearMochila() {
