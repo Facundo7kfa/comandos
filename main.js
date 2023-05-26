@@ -223,10 +223,14 @@ function comienzo() {
       alert("Selección inválida");
     }
   
-
+ alert(misionYsoldado); // no pude hacer que imprima solo me dice [object object]
   }
 
+// crear una mochila con los objetos para la mision 
+misionYsoldado 
+
   function crearMochila() {
+
     const mochilaBum = explosivos.filter(el => el.nombre.includes("bomba") || el.nombre.includes("granada"));
     
     const litrosPack = tambores.reduce((total, tambor) => total + tambor.litros, 0);
@@ -247,13 +251,8 @@ function comienzo() {
   if (misionSeleccionada) {
     mostrarMision(misionSeleccionada);
   }
-
-
 cual()
 
-
-
-
-
   const miMochila = crearMochila();
+
   console.log(miMochila);
